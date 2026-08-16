@@ -83,11 +83,13 @@ Svar: Så, först, flip-flop kretsens utdata är 0, vilket innebär att OR-grind
 3. Flip-flop - Anta att båda ingångarna till flip-flop-kretsen börjar som 0. Beskriv vad som händer steg för steg när den övre ingången tillfälligt sätts till 1.
 Svar: Här har vi två OR-grindar och två NOT-grindar efter varje OR-grind. Vi antar att både ingångarna i kretsen är 0. Vi kan också se att utdata går tillbaka till den övre OR-grinden.
 När den övre ingång sätts till 1 så kommer det ut en 1 från den övre OR-grinden och sedan blir det 0 på grund av en NOT-grind framför sig. 0:an går vidare till den andra OR-grinden som nu har både ingångarna som 0 vilket ger utdata 0. Då 0 går vidare till en NOT-grind innan utdata för kretsen så blir det 1 och den 1 går både som utdata från kretsen men också tillbaka till den övre OR-grinden.
-4.a. Om utdata från en AND-grind skickas genom en NOT-grind kallas kombinationen för en NAND-grind (utdata blir 0 endast om båda ingångarna är 1).
+4. Om utdata från en AND-grind skickas genom en NOT-grind kallas kombinationen för en NAND-grind (utdata blir 0 endast om båda ingångarna är 1).
 Svar: Kretsen består av två ingångar av NOT-grindar, och dessa ingångarna leder till NAND-grind. Så, Om både 2 ingångarna är 1 (blir 0), så blir det 1 i slutet. Om både 2 ingångarna är 0 (blir 1), så blir det 0 i slutet. Sedan, om de är olika, så blir det 1 efter NAND-grinden.
+5. Konvertering till hex:
 5.a. 0110 1010 1111 0010 = 0x6AF2
 5.b. 1110 1000 0101 0101 0001 0111 = 0xE85517
 5.c. 0100 1000 = 0x48
+6. Konvertering till binär:
 6.a. 0x5FD9 = 0101 1111 1101 1001
 6.b. 0x610A = 0110 0001 0000 1010
 6.c. 0xABCD = 1010 1011 1100 1101
