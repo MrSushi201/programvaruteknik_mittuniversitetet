@@ -144,3 +144,53 @@ Sedan, problem som kan uppstå vid användning av globala variabler är att det 
 Först, vilken funktion och del i ett program som helst som använder den globala variabeln kan ändra på själva värdet, vilket resulterar i att andra funktioner som från början förlitar sig på det första värdet nu också påverkas av ändringen.
 Det i sin tur leder till högre koppling mellan delarna i ett program.
 
+---
+
+### 4. Programmeringsparadigmer
+
+Namnge och beskriv fyra olika programmeringsparadigmer enligt läroboken.
+Ge exempel på programmeringsspråk som använder respektive paradigm.
+
+Det finns 4 olika programmeringsparadigmer, och dessa är:
+
+- Funktionellt
+- Objektorienterat
+- Imperativt / Procedurellt
+- Deklarativt
+
+Funktionellt paradigm handlar om att bygga upp ett program genom att koppla samman och/eller nästla ihop "små och enkla" funktioner till en "större och mer komplex" funktion, och där utdata från en funktion skickas vidare som indata till nästa funktion [1], [2].
+Detta programmeringssätt är väldigt funktionbaserat.
+Programmeringsspråk som tillämpar detta paradigm är LISP, ML, SCHEME, Racket, med mera [1].
+
+Objektorienterat paradigm handlar om att bygga upp ett program av objekt som är fristående och aktiva.
+Det finns metoder/operationer (som man definierar för objektet vid själva programmeringsprocessen) och data i ett objekt.
+Så, principiellt samarbetar de olika objekteten i ett program för att utföra den övergripande uppgiften
+Programmeringsspråk som tillämpar detta paradigm är Smalltalk, C++, Visual Basic, Java, C#, Swift, med mera [1], [2].
+
+Imperativt paradigm eller procedurellt paradigm handlar om att man på så sätt definiera en algoritm för att lösa ett problem.
+Detta sätt är det tradionella sättet (och bokstavligen stämmer mest in med den formella defintionen för en algoritm).
+Programmeringsspråk som tillämpar detta paradigm är Machine Languages, COBOL, Pascal, Ada, Python, med mera [1], [2].
+
+Deklarativt paradigm skiljer sig från andra programmeringssätt då man inte definierar en exakt algoritm för hur ett problem ska lösas utan man mer fokuserar på att beskriva själva problemet genom att definera hypoteser och relationer som testas [1], [2].
+
+---
+
+### 5. Programvaruutveckling
+
+Beskriv och jämför programvaruutveckling enligt Vattenfallsmodellen och enligt ett Agilt arbetssätt.
+Vilka fördelar och nackdelar finns det med respektive metod.
+
+Vattenfallsmodellen är en linjär och sekventiell utveklingsmodell.
+Principiellt tillåts utvecklingen endast i en riktning, det vill säga att man inte skall iterera och gå tillbaka till förra fasen.
+Det finns egentligen inte ett förbestämt antal steg eller faser i utvecklingsprocessen.
+Men för att exempelvis visa så används den modell från kurslitteraturen där vattenfallsmodellen har 4 faser, och dessa faser är:
+
+- Kravställning
+- Design
+- Implementering
+- Testning
+
+Programmets syfte och olika krav identifieras och definieras under kravställningsfasen.
+Sedan skapas olika design för programmet baserad de definierade kraven under designfasen.
+Vid implementeringsfase sker den faktiska programmeringen för programmet.
+Avslutningsvis så testas koden och designen för att se om den faktiskt uppfyller de definierade kraven.
