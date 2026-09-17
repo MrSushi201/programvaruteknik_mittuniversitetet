@@ -131,4 +131,16 @@ Vilka problem kan uppstå om man använder globala variabler?
 Ange minst två problem.
 
 Först och främst kan det vara bra att definiera följande begrepp, variabel och konstant.
-En variabel är en namngiven plats i minnet som kan anta och ändra värde under programmets gång. 
+En variabel är en identifierare för en minnesplats som kan anta och ändra olika värden under programmets gång.
+En konstant är också en identifierare som däremot binds till ett fast, icke-föränderligt värde vid deklarationen, och som programmeringsspråket inte tillåter att man ändrar på värdet under exekveringen.
+Vid första ögonblicket kan definitionen för en variabel vara till mycket fördel i jämförelse med konstant.
+Däremot, det finns massvis med fördelar med konstanter som variabler inte kan erbjuda.
+Exempelvis kan en konstant inte ändras av misstag under programmets gång medan variabel kan dynamiskt ändras.
+Detta ger ökad säkerhet.
+Det innebär också att man i princip behöver bara underhålla konstanten på en plats stället för alla ställen i programmet (som man oftast får göra vid användning av variabler).
+Detta är i sig inte ett problem utan det sparar så mycket tid och förebygger mot mänskliga fel.
+
+Sedan, problem som kan uppstå vid användning av globala variabler är att det är väldigt riskebelt.
+Först, vilken funktion och del i ett program som helst som använder den globala variabeln kan ändra på själva värdet, vilket resulterar i att andra funktioner som från början förlitar sig på det första värdet nu också påverkas av ändringen.
+Det i sin tur leder till högre koppling mellan delarna i ett program.
+
