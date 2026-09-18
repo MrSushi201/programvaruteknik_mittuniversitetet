@@ -2,6 +2,14 @@
 
 ---
 
+## Referenser
+
+1. J. G. Brookshear, Computer Science: An Overview, 13th ed. Boston, MA: Pearson, 2019
+2. Mittuniversitetet, "Lektion 3.1.1 Avsnitt 1: Algoritmer", 2025-09-10
+3. Mittuniversitetet, "Lektion 3.2.1 Programmeringsspråk", 2025-09-11
+4. Mittuniversitetet, "Lektion 3.2.2,", 2025-09-11
+5. Mittuniveristetet, "Lektion 3.3.1, programvaruutveckling", 2025-09-13
+
 ## Frågor
 
 ---
@@ -12,9 +20,9 @@ Gör en strikt och en "allmän" beskrivning av algoritmbegreppet.
 Exemplifiera med tre algoritmer.
 Beskriv stegen i de algoritmer du exemplifierar med.
 
-Det finns två definitioner av begreppet algoritm i kurslitteraturen, en informell och en formell.
-Den informella definitionen beskriver en algoritm som en samling av steg som definierar hur en uppgift utförs [1], [2].
-Den formella definitionen beskriver en algoritm som en väldefinierad terminerande process som består av en samling av ordnad mängd, entydiga och exekverbara steg [1], [2].
+Det finns två definitioner av begreppet algoritm i kurslitteraturen, en informell och en formell [1].
+Den informella definitionen beskriver en algoritm som en samling av steg som definierar hur en uppgift utförs [1].
+Den formella definitionen beskriver en algoritm som en väldefinierad **terminerande process** som består av **en samling av ordnad mängd, entydiga** och **exekverbara steg** [1], [2].
 
 Det som skiljer sig mellan den informella och den formella är de fyra kriterierna som nämnts ovan:
 
@@ -31,11 +39,11 @@ Exempel på algoritmer är:
 
 Beskrivning för Euklides algoritm (hur den fungerar):
 
-Euklides algoritm används för att hitta den största gemensamma delaren mellan två positiva heltal X och Y.
+Euklides algoritm används för att hitta den största gemensamma delaren mellan två positiva heltal X och Y [1].
 Rent praktiskt så kan man då dela både nämnaren och täljaren med den största gemensamma delaren för att föenkla bråk.
 Exempel om X = 100 och Y = 22 så blir det bråket 100/22 (eller så kan man använda den största gemensamma delaren och dela 100 och 22 med den, och då blir det motsvarande bråket istället 50/11).
 
-Hur Euklides algoritm fungerar:
+Hur Euklides algoritm fungerar [1]:
 
 1. Identifiera X och Y, där X är det större positiva heltalet och Y är det mindre positiva heltalet
 2. Definiera några regler (villkor):
@@ -48,9 +56,9 @@ Hur Euklides algoritm fungerar:
 
 Beskrivning för sekventiell sökning i en kontinuerlig lista
 
-Sekventiell sökning används för att hitta ett sökvärde i en kontinuerlig lista genom stegvis indexering från det första värdet tills antingen att sökvärdet matchar ett värde i listan eller inte alls matchar något värde.
+Sekventiell sökning används för att hitta ett sökvärde i en kontinuerlig lista genom stegvis indexering från det första värdet tills antingen att sökvärdet matchar ett värde i listan eller inte alls matchar något värde [1], [2].
 
-Hur sekventiell sökning fungerar:
+Hur sekventiell sökning fungerar [1], [2]:
 
 1. Definiera några regler (villkor):
     1. Listan får inte vara tom. Om listan är tom så kan man inte indexera över listan och det finns inget värde att söka på
@@ -62,17 +70,17 @@ Hur sekventiell sökning fungerar:
 
 Beskrivning för binär säkning i en kontinuerlig lista
 
-Binär sökning används också för att hitta ett sökvärde i en kontinuerlig lista med hjälp av halveringsprincipen.
-Binär sökning kräver också att listan är sorterad eller ordnad i storleksordning.
-Principiellt så fungerar binär sökning genom halvering av listan, det vill säga algoritmen undersöker först värdet som finns mitt i listan.
-Sökvärdet jämförs mot det valda "mittvärdet" eller "testvärdet".
-Om sökvärdet är mindre än det valda mittvärdet, flyttas sökningen till den vänstra delen av listan.
-Om sökvärdet är större än det valda mittvärdet, flyttas sökningen till den högra delen av listan.
-Så länge sökvärdet inte matchar mittvärdet så upprepas de ovantående stegen.
-Om sökvärdet till slut matchar mittvärdet är sökningen framgånsrik.
-Om söksegmentet efter halveringen blir tomt utan att värdet hittats är sökningen misslyckad.
+Binär sökning används också för att hitta ett sökvärde i en kontinuerlig lista med hjälp av halveringsprincipen [1], [2].
+Binär sökning kräver också att listan är sorterad eller ordnad i storleksordning [1], [2].
+Principiellt så fungerar binär sökning genom halvering av listan, det vill säga algoritmen undersöker först värdet som finns mitt i listan [1], [2].
+Sökvärdet jämförs mot det valda "mittvärdet" eller "testvärdet" [1], [2].
+Om sökvärdet är mindre än det valda mittvärdet, flyttas sökningen till den vänstra delen av listan [1], [2].
+Om sökvärdet är större än det valda mittvärdet, flyttas sökningen till den högra delen av listan [1], [2].
+Så länge sökvärdet inte matchar mittvärdet så upprepas de ovantående stegen [1], [2].
+Om sökvärdet till slut matchar mittvärdet är sökningen framgånsrik [1], [2].
+Om söksegmentet efter halveringen blir tomt utan att värdet hittats är sökningen misslyckad [1], [2].
 
-Vi översätter ovanstående beskrivning till en instruktion som liknar den som beskriver sekventiell sökning:
+Vi översätter ovanstående beskrivning till en instruktion som liknar den som beskriver sekventiell sökning [1], [2]:
 
 1. Listan får inte vara tom. Om listan är tom så kan man inte halvera listan och det finns inget värde att söka på
 2. Listan måste vara sorterad eller ordnad i storleksordning
@@ -131,18 +139,18 @@ Vilka problem kan uppstå om man använder globala variabler?
 Ange minst två problem.
 
 Först och främst kan det vara bra att definiera följande begrepp, variabel och konstant.
-En variabel är en identifierare för en minnesplats som kan anta och ändra olika värden under programmets gång.
-En konstant är också en identifierare som däremot binds till ett fast, icke-föränderligt värde vid deklarationen, och som programmeringsspråket inte tillåter att man ändrar på värdet under exekveringen.
+En variabel är en identifierare för en minnesplats som kan anta och ändra olika värden under programmets gång [1], [4].
+En konstant är också en identifierare som däremot binds till ett fast, icke-föränderligt värde vid deklarationen, och som programmeringsspråket inte tillåter att man ändrar på värdet under exekveringen [1], [4].
 Vid första ögonblicket kan definitionen för en variabel vara till mycket fördel i jämförelse med konstant.
 Däremot, det finns massvis med fördelar med konstanter som variabler inte kan erbjuda.
 Exempelvis kan en konstant inte ändras av misstag under programmets gång medan variabel kan dynamiskt ändras.
-Detta ger ökad säkerhet.
-Det innebär också att man i princip behöver bara underhålla konstanten på en plats stället för alla ställen i programmet (som man oftast får göra vid användning av variabler).
+Detta ger ökad säkerhet [1], [4].
+Det innebär också att man i princip behöver bara underhålla konstanten på en plats stället för alla ställen i programmet (som man oftast får göra vid användning av variabler) [1], [4].
 Detta är i sig inte ett problem utan det sparar så mycket tid och förebygger mot mänskliga fel.
 
 Sedan, problem som kan uppstå vid användning av globala variabler är att det är väldigt riskebelt.
 Först, vilken funktion och del i ett program som helst som använder den globala variabeln kan ändra på själva värdet, vilket resulterar i att andra funktioner som från början förlitar sig på det första värdet nu också påverkas av ändringen.
-Det i sin tur leder till högre koppling mellan delarna i ett program.
+Det i sin tur leder till högre koppling mellan delarna i ett program [1].
 
 ---
 
@@ -158,20 +166,20 @@ Det finns 4 olika programmeringsparadigmer, och dessa är:
 - Imperativt / Procedurellt
 - Deklarativt
 
-Funktionellt paradigm handlar om att bygga upp ett program genom att koppla samman och/eller nästla ihop "små och enkla" funktioner till en "större och mer komplex" funktion, och där utdata från en funktion skickas vidare som indata till nästa funktion [1], [2].
+Funktionellt paradigm handlar om att bygga upp ett program genom att koppla samman och/eller nästla ihop "små och enkla" funktioner till en "större och mer komplex" funktion, och där utdata från en funktion skickas vidare som indata till nästa funktion [1], [3].
 Detta programmeringssätt är väldigt funktionbaserat.
-Programmeringsspråk som tillämpar detta paradigm är LISP, ML, SCHEME, Racket, med mera [1].
+Programmeringsspråk som tillämpar detta paradigm är LISP, ML, SCHEME, Racket, med mera [1], [3].
 
 Objektorienterat paradigm handlar om att bygga upp ett program av objekt som är fristående och aktiva.
 Det finns metoder/operationer (som man definierar för objektet vid själva programmeringsprocessen) och data i ett objekt.
 Så, principiellt samarbetar de olika objekteten i ett program för att utföra den övergripande uppgiften
-Programmeringsspråk som tillämpar detta paradigm är Smalltalk, C++, Visual Basic, Java, C#, Swift, med mera [1], [2].
+Programmeringsspråk som tillämpar detta paradigm är Smalltalk, C++, Visual Basic, Java, C#, Swift, med mera [1], [3].
 
 Imperativt paradigm eller procedurellt paradigm handlar om att man på så sätt definiera en algoritm för att lösa ett problem.
 Detta sätt är det tradionella sättet (och bokstavligen stämmer mest in med den formella defintionen för en algoritm).
-Programmeringsspråk som tillämpar detta paradigm är Machine Languages, COBOL, Pascal, Ada, Python, med mera [1], [2].
+Programmeringsspråk som tillämpar detta paradigm är Machine Languages, COBOL, Pascal, Ada, Python, med mera [1], [3].
 
-Deklarativt paradigm skiljer sig från andra programmeringssätt då man inte definierar en exakt algoritm för hur ett problem ska lösas utan man mer fokuserar på att beskriva själva problemet genom att definera hypoteser och relationer som testas [1], [2].
+Deklarativt paradigm skiljer sig från andra programmeringssätt då man inte definierar en exakt algoritm för hur ett problem ska lösas utan man mer fokuserar på att beskriva själva problemet genom att definera hypoteser och relationer som testas [1], [3].
 
 ---
 
@@ -194,12 +202,12 @@ Vattenfallsmodellen är ett arbetssätt som är linjärt och sekventiellt. Visue
     - Implementering
       - Testning
 
-Principiellt tillåts utvecklingsprocessen endast i en riktning (från topp till botten), det vill säga att man inte gå tillbaka till tidigare genomförda faser.
-Teoretiskt sett så medför arbetssättet en "stabil" utvecklingsprocess med tydlig struktur och bra förutsägsbarhet för hur faserna ska genomföras och hur slutresultatet ska se ut.
-Det innebär att varje fas genomförs med extrem noggrannhet, och arbetssättet lämnar inga tomrum för "plötsliga" justeringar.
+Principiellt tillåts utvecklingsprocessen endast i en riktning (från topp till botten), det vill säga att man inte gå tillbaka till tidigare genomförda faser [1], [5].
+Teoretiskt sett så medför arbetssättet en "stabil" utvecklingsprocess med tydlig struktur och bra förutsägsbarhet för hur faserna ska genomföras och hur slutresultatet ska se ut [1].
+Det innebär oftast att varje fas genomförs med extrem noggrannhet, och arbetssättet lämnar inga tomrum för "plötsliga" justeringar [1].
 
-Det agila arbetssättet innefattar olika metoder och modeller som bygger på inkrementell och iterativ utveckling.
-I stället för att utföra hela utvecklingsprocessen i en enda lång sekvens byggs en lösning (i detta fall, ett program) upp i korta, upprepade iterationer.
-Visuellt ser utvecklingsproccesen ut som cirklar med pilar från en fas till en annan med pilar åt olika riktningar.
-Det innebär att man inte begränsar utvecklingsprocessens riktning, och kan hoppa runt lite hur som helst vid behov.
-Det medför att man lätt kan anpassa till förändrade krav och prioriteringar under utvecklingens gång.
+Det agila arbetssättet innefattar olika metoder och modeller som bygger på inkrementell och iterativ utveckling [1], [5].
+I stället för att utföra hela utvecklingsprocessen i en enda lång sekvens byggs en lösning (i detta fall, ett program) upp i korta, upprepade iterationer [1], [5].
+Exempelvis kan de fyra ovanstående faserna utföras och upprepas gång på gång tills utvecklingen nå "ett slut" [1], [5].
+Det medför att man lätt kan anpassa till förändrade krav och prioriteringar under utvecklingens gång [1].
+Det blir dock svårare att förutsäga slutramarna, vilket leder till att det blir svårt att verkligen säga att man har uppnått det slutgiltiga resultatet.
