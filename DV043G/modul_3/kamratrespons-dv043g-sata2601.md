@@ -180,17 +180,26 @@ Deklarativt paradigm skiljer sig från andra programmeringssätt då man inte de
 Beskriv och jämför programvaruutveckling enligt Vattenfallsmodellen och enligt ett Agilt arbetssätt.
 Vilka fördelar och nackdelar finns det med respektive metod.
 
-Vattenfallsmodellen är en linjär och sekventiell utveklingsmodell.
-Principiellt tillåts utvecklingen endast i en riktning, det vill säga att man inte skall iterera och gå tillbaka till förra fasen.
-Det finns egentligen inte ett förbestämt antal steg eller faser i utvecklingsprocessen.
-Men för att exempelvis visa så används den modell från kurslitteraturen där vattenfallsmodellen har 4 faser, och dessa faser är:
+Vi definierar några grundläggande utvecklingsfaser i ett utvecklingsprojekt:
 
-- Kravställning
-- Design
-- Implementering
-- Testning
+- Kravställning: programmets syfte och dess olika krav identifieras och definieras
+- Design: en struktur och utformning för programmet utformas
+- Implementering: den faktiska prorgrammeringen för programmet utförs
+- Testning: koden och designen utvärderas och säkerställas så att det slutgiltiga programmet verkligen uppfyller sitt syfte och de identifierade kraven
 
-Programmets syfte och olika krav identifieras och definieras under kravställningsfasen.
-Sedan skapas olika design för programmet baserad de definierade kraven under designfasen.
-Vid implementeringsfase sker den faktiska programmeringen för programmet.
-Avslutningsvis så testas koden och designen för att se om den faktiskt uppfyller de definierade kraven.
+Vattenfallsmodellen är ett arbetssätt som är linjärt och sekventiellt. Visuellt och praktiskt följer man den enligt nedan struktur:
+
+- Kravställing
+  - Design
+    - Implementering
+      - Testning
+
+Principiellt tillåts utvecklingsprocessen endast i en riktning (från topp till botten), det vill säga att man inte gå tillbaka till tidigare genomförda faser.
+Teoretiskt sett så medför arbetssättet en "stabil" utvecklingsprocess med tydlig struktur och bra förutsägsbarhet för hur faserna ska genomföras och hur slutresultatet ska se ut.
+Det innebär att varje fas genomförs med extrem noggrannhet, och arbetssättet lämnar inga tomrum för "plötsliga" justeringar.
+
+Det agila arbetssättet innefattar olika metoder och modeller som bygger på inkrementell och iterativ utveckling.
+I stället för att utföra hela utvecklingsprocessen i en enda lång sekvens byggs en lösning (i detta fall, ett program) upp i korta, upprepade iterationer.
+Visuellt ser utvecklingsproccesen ut som cirklar med pilar från en fas till en annan med pilar åt olika riktningar.
+Det innebär att man inte begränsar utvecklingsprocessens riktning, och kan hoppa runt lite hur som helst vid behov.
+Det medför att man lätt kan anpassa till förändrade krav och prioriteringar under utvecklingens gång.
