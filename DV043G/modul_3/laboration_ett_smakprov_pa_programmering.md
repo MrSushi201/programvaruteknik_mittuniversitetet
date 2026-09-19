@@ -67,7 +67,7 @@ Hur är det med dig idag?        # Den nya print()-raden
 Ett program kan utföra olika instruktioner beroende på ett villkor. Vi vill skapa ett program som avgör om ett heltal är udda eller jämnt. Algoritmen kan beskrivas med pseudokod:
 
 ´´´pseudokod
-Läs tal
+LÄS tal
 OM resten när tal divideras med 2 är 0
     SKRIV 'Talet är jämnt'
 ANNARS
@@ -140,3 +140,59 @@ Viktigt att veta är att just range(10) räknar ALLTID från 0 och 10 tal framå
 
 ## Delupgift 4 - Från algoritm till program
 
+Nu ska du själv göra ett litet program utifrån en algoritm. Euklides algoritm är en mycket gammal algoritm för att hitta den största gemensamma delaren för två heltal. Exempelvis är den största gemensamma delaren till 48 och 18 talet 6. Algoritmen kan beskrivas med pseudokod:
+
+´´´pseudokod
+LÄS a
+LÄS b
+SÅ LÄNGE b inte är 0
+    rest <- a % b
+    a <- b
+    b < rest
+SKRIV a
+´´´
+
+### Gör följande
+
+Översätt pseudokoden till ett Pythonprogram. Du kommer bland annat att behöva:
+
+a = int(input('Skriv första talet: '))
+b = int(input('Skriv andra talet: '))
+
+och en upprepning som börjar:
+
+while b != 0:
+
+Resten av programmet skriver du själv med pseudokoden som hjälp.
+
+Testa programmet med:
+
+- 48 och 18
+- 20 och 5
+- 17 och 7
+
+Kontrollera att resultaten verkar rimliga.
+
+### Fundera och besvara
+
+Jämför pseudokoden med Pythonprogrammet. Vilka delar liknar varandra? Vad behöver uttryckas mer exakt när algoritmen skrivs som Python?
+
+Logikmässigt så liknar pseudokoden och Pythongrammet väldigt mycket. Men programmering kräver noggrannhet/absoluthet/entydighet, det vill säga att det inte får finnas rum för tolkning eller gissning.
+
+Till exempel, pseudokoden specifierar inte vilken datatyp a och b är. Men vi vet att denna algoritm innehåller matematiska beräkningar, och därför måste a och b vara uttryckta som heltal, därav användning av int()-funktioner som översätter/konverterar strängar från input()-funktinoner till heltal.
+
+a = int(input('Skriv första talet: '))
+b = int(input('Skriv andra talet: '))
+
+while b != 0:
+    rest = a % b
+    a = b
+    b = rest
+
+print(a)
+
+Vid a lika med 48 och b lika med 18 blir den största gemensamma delaren 6.
+Vid a lika med 20 och b lika med 5 blir den största gemensamma delaren 5.
+Vid a lika med 17 och b lika med 7 blir den största gemensamma delaren 1.
+
+En algoritm är en beskrivning och en idé om hur en viss uppgift ska utföras, medan ett program är en konkret tolkning av den algoritmen. Ett program kan därför aldrig bli bättre än den algoritm som beskriver det. Om algoritmen är ofullständig och innehåller fel eller luckor, kommer programmet också att ärva dessa brister. Om man däremot gör justeringar direkt i programmet för att fixa algoritmens fel, representerar inte längre programmet den ursprungliga algoritmen utan man har nu förändrat algoritmen under implementeringen.
