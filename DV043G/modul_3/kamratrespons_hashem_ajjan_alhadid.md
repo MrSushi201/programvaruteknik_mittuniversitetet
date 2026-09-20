@@ -1,6 +1,6 @@
 # Kamratrespons - Hashem Ajjan Alhadid
 
-Sammanfattningsvis så tycker jag att du har täckt allting på ett utförligt och strukturerat sätt. 
+Sammanfattningsvis så tycker jag att du har täckt allting på ett utförligt och strukturerat sätt.
 
 ---
 
