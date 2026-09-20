@@ -4,8 +4,8 @@
 
 ## Algoritmer (4 / 5)
 
-- Svaret innehåller den informella definitonen för en algoritm (med hänvisning till en referens)
-- Svaret innehåller an variant av den formella defintionen för en algoritm (utan referens)
+- Svaret innehåller den informella definitionen för en algoritm (med hänvisning till en referens)
+- Svaret innehåller an variant av den formella definitionen för en algoritm (utan referens)
 - Svaret innehåller 3 exempel på algoritmer
 
 Sammanfattningsvis så tycker jag att du har täckt och svarat på frågan. Du har referens för den informella definitionen, men glömt för den andra, därav -1 (jag har för mig att de lägger stor fokus på källhänvisning i denna kurs). Du har exemplfierat/beskrivit 3 algoritmer i svaret, men glömt att namnge de. Nu står det bara "Algoritm 1", "Algoritm 2", ... Så, de hade varit mycket tydligare om de hade namn, som till exempel "Algoritm 1: Tvätta händer" eller något liknande.
@@ -29,7 +29,7 @@ Hursomhelst så tycker jag att du har fångat det mesta om algoritmerna, och du 
 - Du har "ish" givit två exempel på varför det kan vara bögigt att använda globala variabler överallt i ett program
 - Det saknar referenser i dina exempel, därav -1
 
-Jag tycker själv att kursmaterialet innehåller för lite information kring detta ämne. Det finns inte så många bra exempel angående ämnet, och det är därför väldigt viktigt att leta och läsa andra källor. Jag tänker ändå slutbetyget för denna fråga är 2/5, då du har ändå skrivit två exempel.
+Jag tycker själv att kursmaterialet innehåller för lite information kring detta ämne. Det finns inte så många bra exempel angående ämnet i materialet, och det är därför väldigt viktigt att leta och läsa andra källor. Jag tänker ändå slutbetyget för denna fråga är 2/5, då du har ändå skrivit två exempel.
 
 ---
 
