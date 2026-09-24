@@ -47,7 +47,7 @@ Avsnitt behandlar de tre teoretiska grundpelarna för alla datastrukturer:
 
 Datorns primärminne (RAM) är i grunden enbart organiserat som en lång sekvens av numrerade adresserbara minnesceller (bytes). Minnet förstår inte i sig självt vad en matris, en lista eller ett träd är.
 För att programmerare och användare ska slippa tänka i fysiska minnesadresser och byte-mönster skapas datastrukturer som abstrakta verktyg.
-Abstration innebär att man aner vad som ska utföras med datastrukturen utan att i detalj behöva bry sig om hur det utförs nere i minnescellerna.
+Abstraktion innebär att man aner vad som ska utföras med datastrukturen utan att i detalj behöva bry sig om hur det utförs nere i minnescellerna.
 Användaren som drar nytta av abstraktionen kan vara en människa (via ett användargränssnitt), en klient över ett nätverk, eller en annan kodmodul i programmet.
 Lektionsmaterialet framhåller att datastrukturer hanteras som abstrakta verktyg genom att man definierar en uppsättning funktioner för dem.
 
@@ -80,3 +80,153 @@ Lektionsmaterialet knyter ihop abstraktionskonceptet med utvecklingen av egentil
 
 ---
 
+### 8.2.1. Frågor
+
+1. På vilket sätt är datastrukturer som arrayer, listor, stackar, köer, och träd abstraktioner? Data i datorns primärminne lagras i grunden i en lång sekvens av individuellt adresserbara minnesceller. Datastrukturer som arrayer, listor, stackar, köer och träd är abstrakta verktyg (simulerade modeller). De skapas för att skärma av användaren/programmeraren från de tekniska detaljerna i det fysiska minnet och låta oss hantera information på ett mer logiskt och bekvämt sätt
+
+2. Beskriv en tillämpning där du förväntar att en statisk datastruktur används. Beskriv sedan en tillämpning där du förväntar dig att en dynamisk datastruktur används. En tillämpning av statisk datastruktur är spelbrädan med fast storlek (kan vara schack, fyra-i-rad, osv) medan en dynamisk struktur länkade listor eller träd uppbyggda av pekare (som exempelvis domino)
+
+3. Beskriv en sammanhang utanför datavetenskapen där begreppet pekare förekommer. En telefonkatalog är i grunden en samling pekare som pekar ut var specifika personer bor eller kan nås. Samma sak gäller för sidhänvisning, innehållsförteckning eller fotnot i en bok som pekar vidare till var man hittar mer information i texten
+
+---
+
+## 8.3. Hur datastrukturer lagras och implementeras i datorns fysiska minne
+
+---
+
+### 8.3.1. Lagring av arrayer
+
+För endimensionella arrayer lagras data i en kontinuerlig följd av minnesceller. Om basadressen för arrayen är "x" och varje element upptar "s" minnesceller, beräknas adressen för elementet på index "i" som "adress = x + (i x s)".
+
+För tvådimensionella arrayer (matriser) är det annorlunda. Eftersom datorns primärminne är endimensionellt (en linjär sekvens av adresser) måste matriser "plattas till" för att kunna lagras. Data lagras på två sätt för tvådimensionella arrayer, nämnlingen radvis lagring och kolumnvis lagring. För radvis lagring lagras hela första raden först, därefter hela andra raden, och så vidare. För kolumnvis lagring lagras hela första kolumnen först, sedan nästa kolumn.
+
+För att hitta elementet i rad "r" och kolumn "c" omvandlar kompilatorn indexparet till en specifik minnesadress via ett adresspolynom.
+
+---
+
+### 8.3.2. Lagring av poster / aggregat
+
+Hur en struct eller record lagras beror på om fältens storlekar är kända i förväg. Antag att det är fasta storlekar (statiska datastrukturer) så lagras alla fält/data direkt efter varandra i ett sammanhängande block i minnet. Exempelvis, "Employee" med tillhörande "Name", "Age", SkillRating" ser ut så här i datorns primärminne [[Employee.Name], [Employee.Age], [Employee.SkillRating]]. Om fälten kan ändra storlek lagras istället ett block med pekare som pekar ut de olika minnesplatserna där fältens data faktiskt ligger. Samma exempel [[Employee.Name.Pekare -> Employee.Name], [Employee.Age.Pekare -> Employee.Age], [Employee.SkillRating.Pekare -> Employee.Skillrating]].
+
+---
+
+### 8.3.3. Lagring av länkade listor
+
+En nod i en länkad lista bestående av dynamiskt allokerat minne innehåller två fält: själva datat samt en pekare till nästa nod i listan. Det finns några viktiga komponenter i en länkad lista:
+
+- Huvudpekare är en variabel/pekare som håller minnesadressen till listans första nod
+- Slutnod är den sista nodens pekare som sätts till ett nollvärde (NIL eller None) för att markera att listan är slut
+
+Insättning och borttagning av data:
+
+- För att ta bort en nod (till exempel Employee.Age) så ändrar man pekaren från föregående nod, i detta fall Employee.Name, till Employee.SkillRating, och frigör sedan minnesytan som Employee.Age upptog.
+- För att skapa en ny nod, till exempel Employee.Country skapas noden i minnet, och man manipulera pekare enligt den önskade ordningen
+- Vid sortering flyttar man enbart om pekarna i minnet istället för att flytta själva datat, vilket gör operationen mycket snabb
+
+---
+
+### 8.3.4. Lagring av stackar och köer
+
+Stackar implementeras ofta i ett kontinuerligt block av minnesceller (en vanlig array). En stackpekare (huvudpekare) håller reda på vilket index nästa element ska läggas på eller tas ifrån. En tom stack indikeras av att stackpekaren står på 0 eller botten.
+
+För köer och cirkulra köer krävs det två pekare, en huvudpekare var element tas bort och en svanspekare var element läggs till. För att förhindra att kön "vandrar" ur arrayens minnesutrymme används en cirkulär kö, där den sista minnescellen i blocket anses ligga direkt intill den första. När en pekare når slutet av arrayen snurrar den runt till index 0 igen.
+
+---
+
+### 8.3.5. Lagring av binärträd
+
+Det finns två helt olika sätt att lagra ett binärträd i minnet:
+
+- Länkad struktur med pekare (dynamiskt)
+- Kontinuerligt minnesblock utan pekare (array-baserat / statiskt)
+
+Varje nod i en länkad struktur med pekare består av tre fält (data, vänster barnpekare, höger barnpekare). Roten pekas ut av en rotpekare. Blad och löv har NIL/None i sina barkpekare.
+
+Varje nod i ett träd som består av ett kontinuerligt minnesblock utan pekare så lagras trädet i en vanlig array rad för rad (roten först, sedan dess barn, sedan barnbarn). Roten placeras på index 1. För en nod på position "n":
+
+- Vänster barn ligger på position "2n"
+- Höger barn ligger på position "2n + 1"
+- Föräldrer hittas på position "n/2", det vill säga positionen dividerad med 2 utan decimaler
+- Syskon hittas genom att lägga till 1 (om positionen är jämn) eller dra ifrån 1 (om positionen är udda)
+
+Denna array-metod är extremt effektiv för balanserade och fyllda träd, men om trädet är glest eller obalanserat leder det till enorma mängder tomma/slösade platser i arrayen.
+
+För att skydda användaren från dessa tekniska lagringsmodeller döljs den fysiska hanteringen bakom funktioner. Ett klassiskt exempel är rekursiv utskrift av ett sorterat binärträd:
+
+def PrintTree(Tree):
+    if Tree is not None:
+        PrintTree(Tree.Left)    1. Besök bänster subträd rekursivt
+        Print(Tree.Value)       2. Skrivut nodens värde
+        PrintTree(Tree.Right)   3. Besök höger subträd rekursivt
+
+Detta algoritmiska mönster skriver ut alla element i trädet i perfekt alfabetisk/sorterad ordning.
+
+---
+
+### 8.3.6. Frågor
+
+1. Vad är villkoret för att en länkad lista ska anses vara tom? För att en länkad lista ska anses vara tom så räcker det att sluthuvudets/svanshunvudets pekare mot ett nollvärde (NIL eller None) för att markera att listan är slut. För att listan ska anses vara helt tom finns det inga noder alls i minnet. Villkoret är därför att huvudpekaren själv innehåller värdet NIL eller None.
+
+2. Hur hittar du positionen för föräldern och syskonet till en nod på position 7 i ett träd som lagras i ett kontinuerligt minnesblock utan pekare? Om position är 7 så blir vänsterbarnet 14, och högerbarnet 15, plus att förändern blir 7/2 och syskonet blir det 6 då positionen är udda.
+
+3. När en kö implementeras cirkulärt i en array - vad kännetecknar förhållandet mellan huvud- och svanspekare när kön är tom respektive full? När kön är tom så pekar både huvudpekare och svanspekare på samma minnescell. När kön är full pekar huvudpekare och svanspekare faktiskt också på samma minnescell. Eftersom förhållandet huvud är lika med svans uppstår i båda fallen måste man ha extra information (till exempel en räknare för antal element eller lämna en tom minnescell) för att systemet ska kunna skilja på om kön är helt tom eller helt full.
+
+---
+
+## 8.4. En kort fallstudie
+
+Målet i fallstudien är att lagra en alfabetiskt sorterad lista med namn och stödja tre grundläggande operationer:
+
+- Söka efter ett element (Search) rekursivt
+- Skriva ut hela listan i alfabetisk ordning (PrintTree) rekursivt
+- Sätta in ett nytt element (Insert) rekurivt
+
+Om listan lagras som en vanlig enkellänkad lista måste man söka igenom den sekventiellt från början, vilket blir mycket slött när listan växer. En array tillåter snabb binärsökning, men är statisk och svår att utöka dynamiskt när nya namn tillkommer.
+
+Listan lagras som ett binärt sökträd, mitten-elementet i den sorterade sekvensen placeras som trädets rot. Vänster subträd innehåller alla element som är mindre än roten, och höger subträd innehåller alla element som är större än roten.
+
+Sökningen använder binärsökningsprincipen och utnyttjar trädets struktur:
+
+- Jämför det sökta värdet med den aktuella nodens värde
+- Om noden är tom (None), har sökningen misslyckats
+- Om värdena är lika har sökningen lyckats
+- Om det sökta värdet är mindre än den aktuella nodens värde, anropas "Search" rekursivt på det vänstra subträdet
+- Om det sökta värdet är större än den aktuella nodens värde, anropas "Search" rekursivt på det högra subträdet
+
+För att skriva ut innehållet i perfekt alfabetisk ordning används in-order traversal. Eftersom allt till vänster om en nod är mindre och allt till höger är större, garanterar denna enkla trestegsalgoritm att namnen skrivs ut i exakt sorterad ordning.
+
+När ett nytt namn ska läggas till behöver man inte snuva om i hela trädet:
+
+- Man söker sig ner längs trädet med det nya värdet precis som vid en vanlig sökning
+- När man når en tom plats (en None) skapas en ny lövnod med det nya värdet på den platsen
+- Om värdet redan finns i trädet görs ingen ändring
+
+När paketet är färdigbyggt kan en programmerare använda funktionerna Search, PrintTree och Insert utan att bry sig om att namnen i själva verket ligger spridda i minnet sammankopplade med pekare. För användaren fungerar det som en vanlig sorterad lista.
+
+---
+
+### 8.4.1. Frågor
+
+1. Rita det binära sökträdet du skulle använda för att lagra listan med bokstäver R, S, T, U, V, W, X, Y, Z för framtida sökning.
+R, S, T, U
+W, X, Y, Z
+                    V
+            S               X
+        R       U       W       Z
+            T               Y
+
+2. Ange vägen som följs av binäralgoritmen när den söker efter element J i trädet A - M. Vad händer när man söker efter elementet P?
+                            G
+            D                               K
+    B               F               I               M
+A       C       E               H       J       L
+
+Den sökta vägen G -> K -> I -> J
+
+Den sökta vägen blir G -> K -> M -> None (misslyckad sökning).
+
+1. Rita ett diagram/beskriv statusen för aktiveringen i den rekursiva utskriftalgoritmen (PrintTree) vid den tidpunkt då noden K skrivs ut i trädet A - M.
+
+2. Beskriv hur en trädstruktur där varje nod kan ha upp till 26 barn skulle kunna användas för att koda och kontrollera korrekt stavning av engelska ord.
+
+---
