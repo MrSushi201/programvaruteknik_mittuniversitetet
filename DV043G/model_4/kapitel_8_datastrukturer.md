@@ -230,3 +230,22 @@ Den sökta vägen blir G -> K -> M -> None (misslyckad sökning).
 2. Beskriv hur en trädstruktur där varje nod kan ha upp till 26 barn skulle kunna användas för att koda och kontrollera korrekt stavning av engelska ord.
 
 ---
+
+## 8.5. Skräddarsydda datatyper
+
+---
+
+### 8.5.1. Användardefinierade datatyper
+
+Programmeringsspråk erbjuder inbyggda primitiva datatyper som int, float, char och boolean. När man vill samla relaterade information av olika typer skapar man en egen sammansatt datatyp.
+
+- Typ (Type) och Instans (Instance)
+
+Typen/mallen är en ritning som beskriver datastrukturens uppbyggnad men som i sig inte reserverar något minnesutrymme (fungerar som en kakform). Instansen är det faktiska objektet som skapas i minnet utifrån mallen när programmet körs. Traditionella användardefinierade datatyper (som struct) beskriver enbart hur data lagras, men tillhandahåller inga funktioner eller operationer för att manipulera datat.
+
+En abstrakt datatyp tar steget vidare genom att samla både data (representation) ich funktioner/operationer (beteende) i en och samma enhet.
+
+Språk som stödjer abstrakta datatyper bygger på två viktiga principer:
+
+- Gemensam enhet som är syntax för att samla datastrukturen och dess tillhörande funktioner på ett ställe
+- Informationsdöljande är en mekanism som döljer den interna minnesstrukturen. Användaren tillåts enbart interagera med datastrukturen via funktioner (såsom push(), pop(), isEmpty()), vilket förhindrar att utomstående kod ändrar datat på felaktigt sätt.
