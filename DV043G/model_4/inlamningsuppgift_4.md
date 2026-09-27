@@ -55,11 +55,40 @@ Gör en översikt över några vanliga datastrukturer. Beskriv med ord och figur
 
 De ovanstående datastrukturerna nämns i kursmaterialet.
 
-Först, en pekare är en variabel (identifierare) eller minnesplats i datorns minne som innehåller en adress till en annan minnescell där data ligger lagrat [1, s. 445], [2, s. 2]. Eftersom en typ av information finns lagrad i en pekare, skulle man också kunna säga att en pekare i sig är en datastruktur [1, s. 445]. Pekare används för dynamisk minnesallokering/datastruktur och gör det möjligt att sortera och flytta om data genom att enbart ändra adresser istället för att flytta själva datat i minnet [1, s. 445].
+Först, en pekare är en variabel (identifierare) eller minnesplats i datorns minne som innehåller en adress till en annan minnescell där data ligger lagrat [1, s. 445], [2, s. 2]. Eftersom en typ av information finns lagrad i en pekare, skulle man också kunna säga att en pekare i sig är en datastruktur [1, s. 445]. Den implementeras därför i samband med andra (dynamiska) datastrukturer. Pekare används för dynamisk minnesallokering/datastruktur och gör det möjligt att sortera och flytta om data genom att enbart ändra adresser istället för att flytta själva datat i minnet [1, s. 445]. Visuellt kan pekare se ut så här:
+[ adress1 ] -> [ "data1" ], där adress1 är minnesadressen till datat "data1".
 
 I sin enklaste form så är en array en datastruktur där elementen lagras i en kontinuerlig följd i minnet (och antingen radvis eller kolumnvis vid två- eller flerdimensionella arrayer), vilket betyder att elementen ligger precis bredvid varandra i datorns minne [2, s. 2]. Det är också viktigt att nämna att varje element kan identifieras och nås med index [1, s. 438], [2, s. 2] från 0 till (N - 1) där N är arrayens storlek. Arrayer kan användas om datatypen för alla element är av samma typ och att det är konstant storlek per element [1, s. 438]. Varje element/minnescell i en array tar upp exakt lika mycket minnesutrymme eftersom alla element är av samma datatyp. Exempel på arrayer är [0, 1, 2, 3, ..., N] där N är ett heltal eller ["a", "b", "c", ..., "ä"] där alla element är små bokstäver av datatypen sträng.
 
-En länkad lista är en dynamisk datastruktur vars storlek och datatyper kan variera - med andra ord, listan kan växa aller krympa över tid då element läggs till eller tas bort []
+En länkad lista är en dynamisk datastruktur vars storlek och datatyper kan variera - med andra ord, listan kan växa eller krympa över tid då element läggs till eller tas bort []. Viktig egenskap hos en länkad lista (men även för andra dynamiska datastrukturer) är att den tar inte mer minnesutrymme än vad den exakt behöver för de tänkta elementen []. En länkad lista byggs upp av följande komponenter:
+
+- Huvudpekare, en pekare som lagrar minnesadressen till listans första nod
+- Nod, där varje element i listan kallas en nod och består ytterligare av:
+  - Data, det faktiska datat som finns lagrat i noden
+  - Pekare, en minnesplats som innehåller adressen till nästa nod i sekvensen
+- Slutindikator (NIL eller None), den sista nodens pekare sätts till ett nollvärde för att markera att listan är slut
+
+Visuellt kan en länkad lista se ut så här:
+
+[ huvudpekare ] -> [ data1 / pekare1 ] -> [ data2 / pekare2 ] -> ... [ dataN / NIL ].
+
+Om en länkad lista är tom från början, det vill säga att den inte innehåller något element alls, så sätts/pekar huvudpekaren till nollvärdet NIL / None [].
+
+En länkad lista används när antalet element inte kan förutbestämmas och ändras ofta, samt som en grundläggande dynamisk struktur för att implementera stackar och köer [].
+
+Ett träd är en datastruktur som organiserar/lagrar data på ett sätt som liknar, ett träd... Konkreta exempel på trädstrukturen är ett organisationsschema eller ett familjträd. För att förklara hur ett träd som datastruktur fungerar samt definiera viktiga begrepp som används i samband med träd så kan vi använda oss av följande figur som illustrerar ett binärträd:
+
+                                            [ Nod1 | pekare2 | pekare3 ]  (Rotnod) <--- Rotpekare
+                                            /                           \
+                [Nod2 | pekare3 | pekare 4 ]                             [ Nod5 | pekare5 | pekare6 ]
+                /                           \                            /                          \
+   [ Nod3 | NIL ]                           [ Nod4 | NIL ]  [ Nod6 | NIL ]                          [ Nod7 | NIL ]   (Lövnod)  
+
+Varje position i ett träd kallas för nod, och varje nod består egentligen av återigen:
+
+- Data, det faktiska datat som finns lagrat i noden, och
+- Pekare, en eller flera minnesplatser som innehåller adresser till andra noder längst trädet
+
 ---
 
 ## 3. Filer
