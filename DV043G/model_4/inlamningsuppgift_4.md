@@ -89,11 +89,21 @@ Varje position i ett träd kallas för nod, och varje nod består egentligen av 
 - Data, det faktiska datat som finns lagrat i noden, och
 - Pekare, en eller flera minnesplatser som innehåller adresser till andra noder längst trädet
 
+Noden längst upp i trädet kallas rotnod, och fungerar som en ingångspunkt i datastrukturen [1, s. 442]. Därför finns det en rotpekare som pekar på rotnoden. Noder längst ner i trädet kallas för lövnoder [1, s. 442], och de kännetecknas av att deras pekare sätts till NIL eller None eftersom de helt saknar barn. Om en nod pekar på andra noder i trädet, så innebär det att den utgör en föräldernod, medan de noder som pekas av en föräldernod kallas för barnnoder [1, s. 442]. De noder som delar på samma föräldernod kallas för syskonnoder [1, s. 442]. Med andra ord, om två noder ligger på samma nivå men har olika föräldrar räknas de inte som syskon.
+
+Ett träd används främst när informationen har en uppenbar hierarkisk struktur med över- och underordnade nivåer, till exempel ett filsystem [1., 441], ett beslutsträd eller en Bill-of-Materials (BOM) med ingående delar.
+
 ---
 
 ## 3. Filer
 
 Hur fungerar indexerade filer respektive hash-filer? Vilka fördelar och nackdelar finns det med respektive sätt att hantera data i filer?
+
+För att förklara hur indexerade filer och hashfiler fungerar så måste vi först titta på sekventiella filer, som är den enklaste och äldsta formen av filstruktur. Som namnet antyder, sekventiella filer måste läses i en sekvens från början till slut [3, s. 3]. När en sekventiell fil blir för stor så blir det komplicerat att leta rätt på det önskade datat då filen måste läsas från början och i värsta fall till slutet [3, s. 3]. Detta blir för krävande och ineffektivt [4, s. 26].
+
+Det leder till en utveckling av indexering vilket innebär att den sekventiella filen delas upp i mindre delar och en indextabell skapas. Varje datapunkt i den sekventiella filen får då ett nyckelvärde som finns lagrat i en indextabell - med andra ord, man kan utföra en direktsökning via indextabellen, på exakt samma sätt som man använder ett sakregister [1, s. 513]. Men givetvis, med ytterligare information - i detta fall, indextabellen - så tar den extra lagringsutrymme och måste uppdateras och underhållas varje gång data skrivs eller raderas.
+
+Därför utvecklades hash-filer. Istället för att slå upp ett nyckelvärde i en indextabell, använder man istället en matematisk algoritm - en hash-funktion - som tar nyckelvärdet eller nyckelvärden och beräknar direkt vilken adress eller vilka adresser i minnet som datat hör hemma i [1, s. 515]. I detta fall kallas adresserna för hinkar [4, s. 4]. Problem med hash-funktionen är att olika nycklar kan omvandlas till samma hash-värde, vilket innebär att olika data tilldelas samma hink.
 
 ---
 
@@ -102,12 +112,42 @@ Hur fungerar indexerade filer respektive hash-filer? Vilka fördelar och nackdel
 En kö har implementerats i cirkulär form, se figuren nedan. Rita figurer som visar köns läge steg-för-steg efter följande operationer:
 
 1. Bokstäver G och R har ställts i kön
-2. De tre boktäverna har tagits bort ur kön
+2. Tre boktäverna har tagits bort ur kön
 3. D och P har ställts i kön
 
 Glöm inte att sätta ut huvudpekare och svanspekare i varje figur!
 
 |     |  U  |  F  |  K  |  L  |  A  |     |     |
          H                             T
+
+Några viktiga saker att påpeka:
+
+- En kö medför "First-In, First-Out"-principen, vilket innebär att element tas alltid bort från huvudpekaren och läggs till vid svanspekaren
+- Huvudpekaren pekar alltid på köns första eller äldsta element
+- Svanspekaren pekar på nästa lediga plats i kön
+- Eftersom det är en cirkulär kö, så innebär det att när slutet på kön nås så snurrar pekarna tillbaka till början av arrayen
+
+Som utgångsläge så finns det 5 element i kön. Huvudpekaren pekar på "U" som befinner sig på index 1, och svanspekaren pekar på den lediga platsen på index 6.
+
+1. Bokstäver G och R har ställts i kön.
+
+|     |  U  |  F  |  K  |  L  |  A  |  G  |  R  |
+   T     H
+
+Svanspekaren har flyttats till index 0 medan huvudpekaren förblir på index 1.
+
+2. Tre bokstäver har tagits bort ur kön
+
+Utifrån "First-In, First-Out"-principen så kan vi fastställa att U, F, och K kommer att försvinna, och huvudpekaren hamnar på index 4 där "L" ligger.
+
+|     |     |     |     |  L  |  A  |  G  |  R  |
+   T                       H
+
+3. D och P har stältts i kön
+
+Vi följer samma logik som vi gjorde i steg 1, och då kommer den cirkulära kön i slutändan att se ut på följande sätt:
+
+|  D  |  P  |     |     |  L  |  A  |  G  |  R  |
+               T           H
 
 ---
