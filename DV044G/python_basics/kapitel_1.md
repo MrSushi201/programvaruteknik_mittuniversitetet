@@ -21,7 +21,7 @@
 
 ---
 
-# Frågor
+## Frågor
 
 Vilken kärnprinicpen bygger bokens pedagogik på för att undvika att du fastnar i onödiga detaljer? 
 
