@@ -131,3 +131,19 @@ for n in range(1, 4):
 
 ---
 
+## 6.6 Introduktion till pseudokod
+
+Pseudokod är ett sätt att beskriva vad ett program eller en algoritm ska göra utan att använda syntaxen i ett riktigt programmeringsspråk. I stället används enkla instruktioner som beskriver programmets logik på ett övergripande sätt.
+
+Pseudokod hjälper dig att fokusera på vad som ska hända än hur det ska implementeras i exempelvis Python. Genom att beskriva lösningen steg för steg blir det lättare att planera, förstå, och diskutera ett programs uppbyggnad inann själva kodskrivandet påbörjas.
+
+Pseudokod är ett bra sätt att:
+
+- Planera programmets logik innan du börjar koda
+- Förstå algoritmer och arbetet strukturerat med problemlösning
+- Undvika att fastna i detaljre som syntax och formatering
+- Strukturera idéer och tankar på ett sätt som är lätt att förstå för både dig själv och andra
+
+I den här kursen används pseudokod som ett komplement till kravspecifikationer och kodskelett i laborationerna. Pseudokoden beskriver vanligtvis programmets övergripande struktur och flöde, medan detaljerna framgår av laborationsbeskrivningen. Du behöver inte skriva egen pseudokod i kursen, men du sk som sagt kunna läsa, förstå, och tillsammans med laborationsbeskrivningen, omsätta den till fungerade Python-kod.
+
+---
